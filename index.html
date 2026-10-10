@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FisikaKita – Fisika dalam Kehidupan Masyarakat</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#fff8ef;--card:#fff;--text:#2a2140;--muted:#6a6180;--a1:#ff6b35;--a2:#00a8a8;--a3:#7b4dff;--box:#f1ecff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17122b;--card:#231c3d;--text:#f3eeff;--muted:#b4abd0;--box:#2e2552}}
+:root[data-theme="dark"]{--bg:#17122b;--card:#231c3d;--text:#f3eeff;--muted:#b4abd0;--box:#2e2552}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.7}
+header.hero{position:relative;color:#fff;overflow:hidden;background:linear-gradient(135deg,#ff6b35,#c2185b 55%,#7b4dff)}
+#scene{display:block;width:100%;height:260px}
+.hero .txt{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 6vw;background:linear-gradient(90deg,rgba(40,10,70,.75),rgba(40,10,70,0) 80%)}
+.hero h1{margin:0;font-size:clamp(2rem,6vw,3.4rem);letter-spacing:-1px}
+.hero p{margin:.3rem 0 0;max-width:34rem;font-size:clamp(.95rem,2.4vw,1.15rem)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:.5rem;padding:.7rem 4vw;background:var(--card);box-shadow:0 2px 10px rgba(0,0,0,.12);overflow-x:auto}
+nav button{flex:0 0 auto;border:2px solid transparent;border-radius:99px;padding:.5rem 1rem;font:600 .9rem inherit;color:#fff;cursor:pointer;opacity:.6}
+nav button[aria-selected="true"]{opacity:1;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.t0{background:var(--a1)}.t1{background:var(--a2)}.t2{background:var(--a3)}
+main{max-width:860px;margin:0 auto;padding:1.5rem 5vw 3rem}
+.intro{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:2rem}
+.intro a{display:block;text-decoration:none;color:#fff;padding:1.1rem;border-radius:16px;font-weight:600;cursor:pointer}
+.intro span{display:block;font-size:2rem}
+article{display:none;background:var(--card);border-radius:20px;padding:1.5rem 1.4rem;box-shadow:0 6px 22px rgba(0,0,0,.1);border-top:8px solid var(--c)}
+article.on{display:block}
+article h2{margin-top:0;color:var(--c);font-size:1.6rem;line-height:1.25}
+h3{color:var(--c);margin-bottom:.2rem}
+.fig{border-radius:14px;overflow:hidden;margin:1rem 0}
+.fig svg{display:block;width:100%;height:auto}
+.eq{background:var(--box);border-left:5px solid var(--c);padding:.7rem 1rem;border-radius:8px;margin:.8rem 0;font-family:Georgia,serif;font-size:1.1rem;overflow-x:auto}
+.note{background:var(--box);padding:.8rem 1rem;border-radius:12px;color:var(--muted);font-size:.95rem}
+.calc{background:var(--box);padding:1rem;border-radius:12px;margin:1rem 0}
+.calc input{width:100%;accent-color:var(--c)}
+.calc output{font-weight:700;color:var(--c)}
+footer{text-align:center;padding:1.5rem;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<header class="hero">
+  <svg id="scene" viewBox="0 0 1000 260" preserveAspectRatio="xMidYMid slice" aria-label="Ilustrasi kota padat dengan lalu lintas macet dan kerumunan orang"></svg>
+  <div class="txt"><h1>FisikaKita</h1><p>Fisika dalam kehidupan masyarakat: memahami fenomena di balik macet, keselamatan jalan, dan bisingnya kota.</p></div>
+</header>
+<nav id="tabs" role="tablist">
+  <button class="t0" role="tab" data-i="0">🚗 Kemacetan &amp; Energi</button>
+  <button class="t1" role="tab" data-i="1">🛡️ Keselamatan</button>
+  <button class="t2" role="tab" data-i="2">🔊 Kebisingan</button>
+</nav>
+<main>
+<section class="intro" id="home">
+  <a class="t0" data-go="0"><span>🚗</span>Mengapa kemacetan membuat konsumsi energi meningkat?</a>
+  <a class="t1" data-go="1"><span>🛡️</span>Bagaimana fisika membantu meningkatkan keselamatan transportasi?</a>
+  <a class="t2" data-go="2"><span>🔊</span>Mengapa kebisingan kendaraan bisa mengganggu masyarakat?</a>
+</section>
+
+<article id="a0" style="--c:var(--a1)">
+  <h2>Mengapa Kemacetan Membuat Konsumsi Energi Meningkat?</h2>
+  <div class="fig"><svg viewBox="0 0 600 150"><rect width="600" height="150" fill="#ffd9c7"/><rect y="95" width="600" height="55" fill="#4a4458"/><g id="row0"></g><text x="12" y="28" font-size="16" fill="#8a2d0a" font-weight="700">Maju-berhenti-maju-berhenti…</text></svg></div>
+  <p>Di jalan lancar, mobil bergerak dengan kecepatan hampir konstan. Di jalan macet, pengemudi terus menginjak gas dan rem bergantian. Setiap kali, energi dikorbankan, dan ini bisa dijelaskan dengan konsep energi kinetik.</p>
+  <h3>1. Energi kinetik terbuang jadi panas</h3>
+  <div class="eq">E<sub>k</sub> = ½ m v²</div>
+  <p>Mobil bermassa 1.500 kg yang melaju 10 m/s (36 km/jam) menyimpan energi kinetik sekitar <b>75.000 joule</b>. Saat direm, energi itu berubah menjadi panas pada kampas rem, bukan kembali menjadi gerak. Lalu mesin harus membakar bahan bakar lagi untuk mempercepat mobil.</p>
+  <h3>2. Mesin menyala, tetapi tidak menghasilkan perpindahan</h3>
+  <p>Saat diam di tengah macet, mesin tetap membakar bahan bakar. Usaha mekanik <i>W = F · s</i> bernilai nol karena perpindahan nol, sehingga efisiensi perjalanan praktis nol. Padahal mesin bensin biasa hanya mengubah sekitar 25–30% energi bahan bakar menjadi kerja.</p>
+  <h3>3. Efek bagi masyarakat</h3>
+  <p>Jutaan kendaraan yang boros energi berarti lebih banyak BBM terbakar, emisi CO₂ lebih tinggi, waktu hilang, dan biaya hidup meningkat.</p>
+  <div class="note"><b>Solusi berbasis fisika:</b> menjaga kecepatan stabil, angkutan massal (satu bus memuat banyak orang dengan energi per penumpang lebih kecil), dan rem regeneratif pada kendaraan listrik yang mengembalikan sebagian energi kinetik ke baterai.</div>
+</article>
+
+<article id="a1" style="--c:var(--a2)">
+  <h2>Bagaimana Fisika Membantu Meningkatkan Keselamatan Transportasi?</h2>
+  <div class="fig"><svg viewBox="0 0 600 150"><rect width="600" height="150" fill="#c9f1f0"/><rect y="95" width="600" height="55" fill="#4a4458"/><g id="row1"></g><text x="12" y="28" font-size="16" fill="#005f5f" font-weight="700">Jarak aman = jarak reaksi + jarak pengereman</text></svg></div>
+  <h3>1. Impuls dan zona remuk (crumple zone)</h3>
+  <div class="eq">F · Δt = Δp = m Δv</div>
+  <p>Perubahan momentum saat tabrakan sama besar, tetapi jika waktu tumbukan diperpanjang, gaya yang dialami penumpang mengecil. Itulah prinsip <b>zona remuk, airbag, dan sabuk pengaman</b>.</p>
+  <h3>2. Hukum I Newton dan sabuk pengaman</h3>
+  <p>Saat mobil berhenti mendadak, tubuh cenderung terus bergerak (inersia). Sabuk pengaman menahan tubuh agar tidak terlempar.</p>
+  <h3>3. Jarak henti kendaraan</h3>
+  <div class="eq">d = v·t<sub>r</sub> + v² / (2 μ g)</div>
+  <p>Kecepatan dua kali lipat membuat jarak pengereman <b>empat kali</b> lebih panjang. Contoh: v = 20 m/s (72 km/jam), waktu reaksi 1 s, μ = 0,7: d ≈ 20 + 29 = <b>±49 m</b>.</p>
+  <div class="calc" style="--c:var(--a2)">
+    <label>Kecepatan: <output id="vo">72</output> km/jam<input id="v" type="range" min="20" max="120" value="72"></label>
+    <p style="margin:.5rem 0 0">Reaksi 1 s, jalan kering (μ = 0,7) → jarak henti ≈ <output id="dout">49</output> m</p>
+  </div>
+  <div class="note">Fisika juga dipakai pada desain tikungan miring, ABS (menjaga roda tetap berputar agar gesekan statis maksimum), batas kecepatan, dan helm yang meredam energi benturan.</div>
+</article>
+
+<article id="a2" style="--c:var(--a3)">
+  <h2>Mengapa Kebisingan Kendaraan Bisa Mengganggu Masyarakat?</h2>
+  <div class="fig"><svg viewBox="0 0 600 150"><rect width="600" height="150" fill="#e4dbff"/><rect y="95" width="600" height="55" fill="#4a4458"/><g id="row2"></g><g fill="none" stroke="#7b4dff" stroke-width="3"><path d="M330 55q14 14 0 28"/><path d="M345 45q22 24 0 48"/><path d="M362 35q30 34 0 68"/></g><text x="12" y="28" font-size="16" fill="#4a24b8" font-weight="700">Gelombang bunyi menyebar ke sekitar jalan</text></svg></div>
+  <p>Bunyi adalah gelombang longitudinal yang merambat melalui udara. Mesin, knalpot, klakson, dan gesekan ban dengan jalan menghasilkan getaran yang sampai ke telinga warga.</p>
+  <h3>1. Tingkat intensitas bunyi</h3>
+  <div class="eq">β = 10 log (I / I₀), I₀ = 10⁻¹² W/m²</div>
+  <p>Skala desibel bersifat logaritmik: <b>dua sumber identik hanya menambah ±3 dB</b>, tetapi kenaikan 10 dB berarti intensitas 10 kali lipat. Karena itu ribuan kendaraan membuat kota jauh lebih bising.</p>
+  <h3>2. Jarak dan intensitas</h3>
+  <div class="eq">I = P / (4π r²)</div>
+  <p>Jika jarak digandakan, intensitas menjadi seperempat (turun ±6 dB). Rumah yang dekat jalan raya menerima bising jauh lebih tinggi.</p>
+  <h3>3. Dampak pada masyarakat</h3>
+  <p>Paparan bising berkepanjangan dikaitkan dengan gangguan tidur, stres, sulit berkonsentrasi, dan kerusakan pendengaran pada tingkat yang tinggi.</p>
+  <div class="note"><b>Solusi:</b> peredam pada knalpot, dinding penghalang bising, pepohonan dan ruang hijau, aspal berpori yang menyerap bunyi, serta pengaturan zona dan waktu lalu lintas.</div>
+</article>
+</main>
+<footer>© FisikaKita – Fisika untuk memahami kehidupan sosial sehari-hari</footer>
+
+<script>
+// Deterministic pseudo-random for the city scene
+let s=7;const r=()=>(s=(s*9301+49297)%233280)/233280;
+const cols=['#ff6b35','#00a8a8','#ffd23f','#e91e63','#3d5afe','#ffffff','#7b4dff'];
+(function(){
+  let h='<defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#ff5e7e"/></linearGradient></defs><rect width="1000" height="260" fill="url(#sk)"/><circle cx="820" cy="70" r="38" fill="#fff3b0" opacity=".9"/>';
+  for(let x=0;x<1000;){const w=50+r()*60,t=40+r()*110;h+=`<rect x="${x}" y="${170-t}" width="${w}" height="${t+20}" fill="${r()>.5?'#5b2a86':'#3a1c63'}" opacity=".9"/>`;
+    for(let y=175-t;y<165;y+=14)for(let k=6;k<w-8;k+=14)if(r()>.45)h+=`<rect x="${x+k}" y="${y}" width="6" height="8" fill="#ffe27a"/>`;x+=w+4}
+  h+='<rect y="170" width="1000" height="90" fill="#3b3550"/><rect y="168" width="1000" height="5" fill="#7d7595"/>';
+  for(let x=0;x<1000;x+=60)h+=`<rect x="${x}" y="212" width="30" height="3" fill="#ffd23f"/>`;
+  // crowd on sidewalk
+  for(let x=5;x<1000;x+=16+r()*8){const c=cols[(r()*7)|0];h+=`<circle cx="${x}" cy="156" r="5" fill="#f4c7a1"/><rect x="${x-5}" y="161" width="10" height="16" rx="4" fill="${c}"/>`}
+  // cars in two jammed lanes
+  for(let l=0;l<2;l++)for(let x=-10;x<1000;x+=58+r()*10){const c=cols[(r()*7)|0],y=184+l*38;
+    h+=`<g><rect x="${x}" y="${y+8}" width="52" height="16" rx="5" fill="${c}"/><path d="M${x+10} ${y+8}l6-9h20l8 9z" fill="${c}"/><path d="M${x+18} ${y+7}l4-6h12l5 6z" fill="#bfe9ff"/><circle cx="${x+12}" cy="${y+25}" r="5" fill="#111"/><circle cx="${x+40}" cy="${y+25}" r="5" fill="#111"/><rect x="${x+48}" y="${y+13}" width="4" height="4" fill="#ff2b2b"/></g>`}
+  document.getElementById('scene').innerHTML=h;
+})();
+// small car rows for article figures
+function row(id,n,colset){let h='';for(let i=0;i<n;i++){const x=20+i*(n>5?85:105),c=colset[i%colset.length];
+ h+=`<g><rect x="${x}" y="98" width="70" height="22" rx="7" fill="${c}"/><path d="M${x+14} 98l9-16h26l10 16z" fill="${c}"/><path d="M${x+25} 96l6-12h14l7 12z" fill="#d6f3ff"/><circle cx="${x+17}" cy="122" r="7" fill="#111"/><circle cx="${x+53}" cy="122" r="7" fill="#111"/></g>`}
+ document.getElementById(id).innerHTML=h}
+row('row0',7,['#ff6b35','#e91e63','#ffd23f','#3d5afe']);
+row('row1',5,['#00a8a8','#ffd23f','#ff6b35']);
+row('row2',4,['#7b4dff','#e91e63','#3d5afe']);
+// tabs
+const arts=[...document.querySelectorAll('article')],tabs=[...document.querySelectorAll('#tabs button')];
+function show(i){arts.forEach((a,k)=>a.classList.toggle('on',k===i));tabs.forEach((b,k)=>b.setAttribute('aria-selected',k===i));
+ document.getElementById('home').style.display='none';
+ try{history.replaceState(null,'','#a'+i)}catch(e){}window.scrollTo({top:document.querySelector('nav').offsetTop-4,behavior:'smooth'})}
+tabs.forEach((b,i)=>b.onclick=()=>show(i));
+document.querySelectorAll('[data-go]').forEach(a=>a.onclick=()=>show(+a.dataset.go));
+document.querySelector('.hero h1').onclick=()=>{arts.forEach(a=>a.classList.remove('on'));tabs.forEach(b=>b.setAttribute('aria-selected',false));document.getElementById('home').style.display=''};
+const m=location.hash.match(/#a(\d)/);if(m)show(+m[1]);
+// stopping distance
+const v=document.getElementById('v');
+function upd(){const ms=v.value/3.6,d=ms*1+ms*ms/(2*0.7*9.8);document.getElementById('vo').textContent=v.value;document.getElementById('dout').textContent=Math.round(d)}
+v.oninput=upd;upd();
+</script>
+</body>
+</html>
